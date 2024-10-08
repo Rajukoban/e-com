@@ -1,0 +1,32 @@
+.my-tickets-container {
+    padding: 20px;
+  }
+  
+  mat-card{
+    background-color: #faf9f9;
+  }
+  table {
+    width: 100%;
+  }
+
+  th,td{
+    text-align: center;
+  }
+
+  mat-card-title{
+    text-align: left;
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-left: 500px;
+}
+
+@media screen and(max-width:500px) {
+  mat-card-title{
+      font-size: 20px;
+  }
+
+  button{
+    flex: 1;
+  }
+  
+}

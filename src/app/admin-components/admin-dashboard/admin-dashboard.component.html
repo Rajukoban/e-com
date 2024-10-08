@@ -1,0 +1,44 @@
+<div class="tickets-container">
+    @for (product of products; track product.productId) {
+      <mat-card class="ticket-card">
+          <mat-card-header>
+           <img [src]="'http://localhost:8002/api/products/images/' + product.productPhoto" alt="No image">
+          </mat-card-header>
+          <mat-card-content>
+            <strong style="margin-left: 50px;margin-top: 20px;">{{product.productName}}</strong>
+            <p>{{ product.productDescription }}</p>
+            <p>{{product.productPrice -(product.productPrice * product.productDiscount /100) | currency:'INR':'symbol'}}</p><p>M.P.R: <del>{{product.productPrice | currency:'INR'}}</del> ({{product.productDiscount}}% off)</p>
+          </mat-card-content>
+          <!-- <mat-card-actions>
+            <button mat-button color="primary" (click)="viewDetails(ticket.ticket.ticketId)">View Details</button>
+            <button mat-button color="accent" (click)="updateDetails(ticket.ticket.ticketId)">Update Status</button>
+          </mat-card-actions> -->
+          <p style="text-align: center; margin-top: 10px;">FREE Delivery by Raj</p>
+          <button mat-raised-button color="warn" (click)="faq(product.productId)">FAQ</button>
+          <button mat-raised-button color="primary" (click)="edit(product.productId)">Edit</button>
+          <button mat-raised-button color="warn" (click)="deleted(product.productId)">Delete</button>
+        </mat-card>
+      }@empty {
+        <h1 style="color: red; text-align: center;">Product Server is not started</h1>
+      }
+  </div>
+
+
+  <!-- src/app/components/product-list/product-list.component.html -->
+<!-- <div class="product-list">
+  <mat-grid-list cols="3" rowHeight="350px" gutterSize="16px">
+    <mat-grid-tile *ngFor="let product of products">
+      <mat-card class="product-card">
+        <img mat-card-image [src]="'http://localhost:8002/api/products/images/' + product.productPhoto" alt="{{ product.productName }}" />
+        <mat-card-title>{{ product.productName }}</mat-card-title>
+        <mat-card-subtitle>{{ product.productDescription }}</mat-card-subtitle>
+        <mat-card-content>
+          <p>Price: {{ product.productPrice }} $</p>
+          <p>Discount: {{ product.productDiscount }}%</p>
+          <p>Quantity: {{ product.productQuantity }}</p>
+          <p>Price after discount: {{ product.productPrice - (product.productPrice * product.productDiscount / 100) }} $</p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div> -->

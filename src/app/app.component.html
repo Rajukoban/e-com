@@ -1,0 +1,92 @@
+<div *ngIf="!isAdminLoggedIn && !isCustomerLoggedIn">
+    <mat-toolbar color="primary" class="navbar">
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="navbar-brand">Raj Men's Wear</span>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item><a routerLink="/admin/dashborad" routerLinkActive="active">Home</a></button>
+        <button mat-menu-item><a routerLink="/admin/pending" routerLinkActive="active">Pending Approvals</a></button>
+        <button mat-menu-item [matMenuTriggerFor]="ticketManagement1"><a routerLinkActive="active" routerLink="/admin/manage">Ticket Management</a></button>
+        <button mat-menu-item><a routerLink="/admin/categery" routerLinkActive="active">Reports</a></button>
+        <button mat-menu-item><a routerLink="/admin/categery" routerLinkActive="active">Team Performance</a></button>
+      </mat-menu>
+      <mat-menu #ticketManagement1="matMenu">
+        <button mat-menu-item><a routerLink="/ITSupport/alltickets" routerLinkActive="active">All Tickets</a></button>
+        <button mat-menu-item><a routerLink="/ITSupport/opentickets" routerLinkActive="active">Open Tickets</a></button>
+        <button mat-menu-item><a routerLink="/admin/approval" routerLinkActive="active">Approved Tickets</a></button>
+        <button mat-menu-item><a routerLink="/admin/reject" routerLinkActive="active">Rejected Tickets</a></button>
+        <button mat-menu-item><a routerLink="/ITSupport/closedtickets" routerLinkActive="active">Closed Tickets</a></button>
+      </mat-menu>
+      <span class="serach"></span>
+      <div class="search">
+      <mat-form-field appearance="outline" class="search-box">
+        <input matInput placeholder="search" class="search-input" (keyup)="applyFilter($event)">
+        <mat-icon matPrefix style="color: black;">search</mat-icon>
+      </mat-form-field>
+      </div>
+      <span class="spacer"></span>
+      <button mat-button>Tracking</button>
+      <button mat-button routerLink="/signup" routerLinkActive="active">Register</button>
+      <button mat-button routerLink="/login" routerLinkActive="active">Login</button>
+    
+    </mat-toolbar>
+    </div>
+    
+    <div *ngIf="isCustomerLoggedIn">
+      <mat-toolbar color="primary" class="navbar">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span class="navbar-brand">Raj Mens Wear</span>
+        <mat-menu #menu="matMenu">
+        <button mat-menu-item><a routerLink="/users/dashboard" routerLinkActive="active">DashBorad</a></button>
+        <button mat-menu-item><a routerLink="/admin/pending" routerLinkActive="active">Cart</a></button>
+        <button mat-menu-item [matMenuTriggerFor]="ticketManagement1"><a routerLinkActive="active" routerLink="/admin/manage">Orders</a></button>
+        <button mat-menu-item><a routerLink="/admin/categery" routerLinkActive="active">WISHLIST</a></button>
+        <button mat-menu-item><a routerLink="/admin/categery" routerLinkActive="active">PROFILE</a></button>
+      </mat-menu>
+      <mat-menu #ticketManagement1="matMenu">
+        <button mat-menu-item><a routerLink="/ITSupport/alltickets" routerLinkActive="active">All Tickets</a></button>
+        <button mat-menu-item><a routerLink="/ITSupport/opentickets" routerLinkActive="active">Open Tickets</a></button>
+        <button mat-menu-item><a routerLink="/admin/approval" routerLinkActive="active">Approved Tickets</a></button>
+        <button mat-menu-item><a routerLink="/admin/reject" routerLinkActive="active">Rejected Tickets</a></button>
+        <button mat-menu-item><a routerLink="/ITSupport/closedtickets" routerLinkActive="active">Closed Tickets</a></button>
+      </mat-menu>
+      <span class="it"></span>
+      <button mat-button routerLink="/users/dashboard" routerLinkActive="active">Dahsborad</button>
+      <button mat-button routerLink="/users/cart" routerLinkActive="active">Cart</button>
+      <button mat-button routerLink="/users/myOrders" routerLinkActive="active">Orders</button>
+      <button mat-button routerLink="/ITSupport/wishlist" routerLinkActive="active">WishList</button>
+      <button mat-button routerLink="/ITSupport/profile" routerLinkActive="active">Profile</button>
+      <button mat-button [matMenuTriggerFor]="itsupport"><mat-icon>account_circle</mat-icon></button>
+    
+      <mat-menu #itsupport>
+        <button mat-menu-item><a routerLinkActive="active" routerLink="/users/profile"><button mat-button><mat-icon>account_box</mat-icon>MyProfile</button></a></button>
+        <button mat-menu-item><a routerLinkActive="active" (click)="logout()"><button mat-button><mat-icon>exit_to_app</mat-icon>Logout</button></a></button>
+      </mat-menu>
+      </mat-toolbar>
+      </div>
+    
+      <div *ngIf="isAdminLoggedIn">
+        <mat-toolbar color="primary" class="navbar">
+          <span class="navbar-brand">Raj Mens Wear Narayanpet</span>
+          <span class="spacer"></span>
+          <button mat-button routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</button>
+          <button mat-button routerLink="/admin/addcategory" routerLinkActive="active">Category</button>
+          <button mat-button routerLink="/admin/addproduct" routerLinkActive="active">Products</button>
+          <button mat-button routerLink="/users/approved" routerLinkActive="active">Analytics</button>
+          <button mat-button routerLink="/admin/orders" routerLinkActive="active">Orders</button>
+          <button mat-button routerLink="/admin/postCoupon" routerLinkActive="active">Post Coupon</button>
+          <button mat-button routerLink="/admin/getCoupons" routerLinkActive="active">Coupons</button>
+          <button mat-button [matMenuTriggerFor]="projectlogout"><mat-icon>account_circle</mat-icon></button>
+    
+          <mat-menu #projectlogout>
+            <button mat-menu-item><a routerLinkActive="active" routerLink="/users/profile"><button mat-button><mat-icon>account_box</mat-icon>MyProfile</button></a></button>
+            <button mat-menu-item><a routerLinkActive="active" (click)="logout()"><button mat-button><mat-icon>exit_to_app</mat-icon>Logout</button></a></button>
+          </mat-menu>
+        
+        </mat-toolbar>
+        </div>  
+    
+    <router-outlet></router-outlet>

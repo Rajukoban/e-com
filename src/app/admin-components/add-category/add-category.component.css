@@ -1,0 +1,38 @@
+mat-card {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #cecdcd;
+  }
+  
+mat-form-field {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+mat-card-title{
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+mat-form-field{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+@media screen and(max-width:500px) {
+    mat-card-title{
+        font-size: 20px;
+    }
+
+    mat-form-field{
+        margin-bottom: 10px;
+    }
+    
+}

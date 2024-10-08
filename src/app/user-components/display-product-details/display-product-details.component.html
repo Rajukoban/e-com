@@ -1,0 +1,16 @@
+<div>
+    <mat-card class="ticket-card">
+        <mat-card-header>
+            <img [src]="'http://localhost:8002/api/products/images/' + products.productPhoto" alt="No image">
+        </mat-card-header>
+    </mat-card>
+    <mat-card class="content">
+        <mat-card-header><strong style="font-size: 30px;">{{products.productName}}</strong></mat-card-header>
+        <mat-card-content>
+        <p style="font-size: 16px; margin-top: 20px;">Brand : {{products.productDescription}}</p>
+            </mat-card-content>
+        <mat-divider></mat-divider>
+        <mat-card-content> <p style="color: red; font-size: 20px;margin-top: 20px;">{{products.productPrice -(products.productPrice * products.productDiscount /100) | currency:'INR':'symbol'}}</p><p>M.P.R: <del>{{products.productPrice | currency:'INR'}}</del> ({{products.productDiscount}}% off)</p></mat-card-content>
+        <mat-divider></mat-divider>
+    </mat-card>
+</div>
